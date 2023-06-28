@@ -1,10 +1,14 @@
 #!/bin/bash
 
 case "$1" in
-  --date)
+  --init)
+    git clone <git remote add origin https://github.com/dsw50209/projekt1-2.git> .
+    export PATH=$PATH:$(pwd)
+    ;;
+  --date | -d)
     echo $(date)
     ;;
-  --logs)
+  --logs | -l)
     if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
       num_logs=$2
     else
@@ -15,13 +19,13 @@ case "$1" in
       echo "log$i.txt - created by skrypt.sh - $(date)" > "log$i.txt"
     done
     ;;
-  --help)
+  --help | -h)
     echo "Dostępne opcje:"
-    echo "  --date - wyświetla dzisiejszą datę"
-    echo "  --logs [liczba] - tworzy automatycznie podaną liczbę plików logx.txt, gdzie x to numer pliku, domyślnie 100"
-    echo "  --help - wyświetla wszystkie dostępne opcje"
+    echo "  --date, -d - wyświetla dzisiejszą datę"
+    echo "  --logs [liczba], -l [liczba] - tworzy automatycznie podaną liczbę plików logx.txt, gdzie x to numer pliku, domyślnie 100"
+    echo "  --help, -h - wyświetla wszystkie dostępne opcje"
     ;;
   *)
     echo "Nieznana opcja. Użyj skrypt.sh --help, aby zobaczyć dostępne opcje."
-    ;;
+    ;;
 esac
