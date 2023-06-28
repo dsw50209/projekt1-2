@@ -35,9 +35,8 @@ case "$1" in
     echo "Dostępne opcje:"
     echo "  --date, -d - wyświetla dzisiejszą datę"
     echo "  --logs [liczba], -l [liczba] - tworzy automatycznie podaną liczbę plików logx.txt, gdzie x to numer pliku, domyślnie 100"
+    echo "  --init - klonuje całe repozytorium do bieżącego katalogu i ustawia ścieżkę w zmiennej środowiskowej PATH"
+    echo "  --error [liczba], -e [liczba] - tworzy automatycznie podaną liczbę plików errorx/errorx.txt, gdzie x to numer pliku, domyślnie 100"
     echo "  --help, -h - wyświetla wszystkie dostępne opcje"
-    ;;
-  *)
-    echo "Nieznana opcja. Użyj skrypt.sh --help, aby zobaczyć dostępne opcje."
     ;;
 esac
