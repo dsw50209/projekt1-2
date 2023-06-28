@@ -5,6 +5,18 @@ case "$1" in
     git clone <git remote add origin https://github.com/dsw50209/projekt1-2.git> .
     export PATH=$PATH:$(pwd)
     ;;
+  --error | -e)
+    if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
+      num_errors=$2
+    else
+      num_errors=100
+    fi
+
+    for ((i=1; i<=num_errors; i++)); do
+      mkdir -p "error$i"
+      echo "error$i.txt - created by skrypt.sh - $(date)" > "error$i/error$i.txt"
+    done
+    ;;
   --date | -d)
     echo $(date)
     ;;
